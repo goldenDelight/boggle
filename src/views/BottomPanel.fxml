@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.BottomController"
+            prefHeight="50" prefWidth="800"
+            fx:id="BottomPanelView">
+    <HBox>
+        <Button fx:id="add" onAction="#addButtonClicked" text="add"
+                prefHeight="75.0" prefWidth="175.0"/>
+
+        <Button fx:id="cancel" onAction="#cancelButtonClicked" text="cancel"
+                prefHeight="75.0" prefWidth="175.0"/>
+
+        <Button fx:id="roll" onAction="#rollButtonClicked" text="re-roll"
+                prefHeight="75.0" prefWidth="175.0"/>
+    </HBox>
+</AnchorPane>
