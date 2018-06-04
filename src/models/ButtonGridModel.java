@@ -38,6 +38,7 @@ public class ButtonGridModel {
                 buttonCoords[r][c] = bb;
                 listo.add(bb);
                 board.add(bb,r,c);
+                bb.setButtonBounds();
             }
         }
     }

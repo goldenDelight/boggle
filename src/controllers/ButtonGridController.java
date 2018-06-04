@@ -32,8 +32,11 @@ public class ButtonGridController {
 
     public void letterClicked(BoggleButton b){
         if(gridModel.valid(b)){
-            BOARD_CONTROLLER.letterClicked(b);
             gridModel.updateBoard(b);
+            b.setButtonBounds();
+            b.setX();
+            b.setY();
+            BOARD_CONTROLLER.letterClicked(b);
 //            Circle circle = GRAPHICS_CONTROLLER.makeCircle(b);
 //            gridModel.addCircle(circle, b.getR(), b.getC());
         } else if(gridModel.first(b)){

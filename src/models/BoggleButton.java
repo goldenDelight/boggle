@@ -9,7 +9,10 @@ public class BoggleButton extends Button {
     private boolean valid = true;
     private int r,c;
     private String letter = "";
-    private Bounds screenBounds = this.localToScene(this.getBoundsInLocal());
+    private Bounds buttonBounds;
+    private double X;
+    private double Y;
+
 
     public void setLetter(String letter) {
         this.letter = letter;
@@ -50,12 +53,23 @@ public class BoggleButton extends Button {
         return this.valid;
     }
 
+    public void setButtonBounds(){
+        buttonBounds = this.localToScene(this.getBoundsInLocal());
+    }
+
+    public void setX(){
+        this.X = this.buttonBounds.getMaxX()-(this.buttonBounds.getMinX()/2);
+    }
+    public void setY(){
+        this.Y = this.buttonBounds.getMaxY()-(this.buttonBounds.getMinY()/2);
+    }
+
 
     public Double getX(){
-        return (screenBounds.getMinX() + screenBounds.getMaxX())/2;
+        return X;
     }
     public Double getY(){
-        return (screenBounds.getMinY() + screenBounds.getMaxY())/2;
+        return Y;
     }
 
 }

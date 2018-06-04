@@ -2,6 +2,7 @@ package controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import models.BoggleButton;
@@ -18,19 +19,21 @@ public class GraphicsController {
     final private static MenuController MENU_CONTROLLER = new MenuController();
 
     @FXML
-    Pane circlePane;
+    Pane graphicsPanel;
 
     public void initialize(){
-        graphics.initialize(circlePane);
+        graphics.initialize(graphicsPanel);
     }
 
     public void circleFactory(BoggleButton b){
-        Circle circle = graphics.makeCircle(b);
-        graphics.addCircle(circle);
+        graphics.makeCircle(b);
     }
 
+    public void arrowFactory(BoggleButton b){
+        graphics.makeArrows(b);
+    }
 
-//    public void addCircle(BoggleButton b){
-//        graphics.addCircle();
-//    }
+    public void clearCircles(){
+        graphics.clearCircles();
+    }
 }
