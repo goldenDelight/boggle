@@ -3,10 +3,11 @@ package models;
 import controllers.ButtonGridController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.text.Font;
+import javafx.scene.shape.Line;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,13 +33,17 @@ public class ButtonGridModel {
 
         board = gameBoard;
 
+        double x1, x2, x3, x4, y1, y2, y3, y4;
+
+
         for(int i=0, c=0; c<4; c++){
             for(int r=0; r<4; r++){
                 BoggleButton bb = makeButton(i++, r, c);
                 buttonCoords[r][c] = bb;
                 listo.add(bb);
                 board.add(bb,r,c);
-                bb.setButtonBounds();
+//                bb.setAlignment(Pos.CENTER);
+//                bb.setButtonBounds();
             }
         }
     }

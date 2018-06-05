@@ -3,7 +3,6 @@ package controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;
-import javafx.scene.shape.Circle;
 import models.BoggleButton;
 import models.ButtonGridModel;
 
@@ -34,8 +33,8 @@ public class ButtonGridController {
         if(gridModel.valid(b)){
             gridModel.updateBoard(b);
             b.setButtonBounds();
-            b.setX();
-            b.setY();
+            b.offsetX();
+            b.offsetY();
             BOARD_CONTROLLER.letterClicked(b);
 //            Circle circle = GRAPHICS_CONTROLLER.makeCircle(b);
 //            gridModel.addCircle(circle, b.getR(), b.getC());

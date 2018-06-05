@@ -2,6 +2,7 @@ package models;
 
 import javafx.geometry.Bounds;
 import javafx.scene.control.Button;
+import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 
 public class BoggleButton extends Button {
@@ -12,6 +13,7 @@ public class BoggleButton extends Button {
     private Bounds buttonBounds;
     private double X;
     private double Y;
+    public double x1,x2,y1,y2;
 
 
     public void setLetter(String letter) {
@@ -56,12 +58,17 @@ public class BoggleButton extends Button {
     public void setButtonBounds(){
         buttonBounds = this.localToScene(this.getBoundsInLocal());
     }
-
-    public void setX(){
-        this.X = this.buttonBounds.getMaxX()-(this.buttonBounds.getMinX()/2);
+    public Bounds getButtonBounds(){
+        return buttonBounds;
     }
-    public void setY(){
-        this.Y = this.buttonBounds.getMaxY()-(this.buttonBounds.getMinY()/2);
+
+
+
+    public void offsetX(){
+        this.X = (this.buttonBounds.getMaxX() - (this.buttonBounds.getMinX()))/2.0;
+    }
+    public void offsetY(){
+        this.Y = (this.buttonBounds.getMaxY() - (this.buttonBounds.getMinY()))/2.0;
     }
 
 
@@ -71,6 +78,7 @@ public class BoggleButton extends Button {
     public Double getY(){
         return Y;
     }
+
 
 }
 

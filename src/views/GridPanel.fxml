@@ -8,8 +8,8 @@
 
 <StackPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            prefHeight="400.0" prefWidth="500.0">
+            prefHeight="500.0" prefWidth="500.0">
     <fx:include source="ButtonGrid.fxml"/>
-    <fx:include source="GraphicsPanel.fxml" mouseTransparent="true" style=" -fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;"/>
+    <fx:include source="GraphicsPanel.fxml" mouseTransparent="true"/>
 
 </StackPane>

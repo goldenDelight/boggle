@@ -3,7 +3,9 @@ package controllers;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 import models.BoardModel;
 import models.BoggleButton;
 
@@ -19,6 +21,9 @@ public class BoardController {
 
     @FXML
     Label wipLabel;
+
+    @FXML
+    StackPane stack;
 
     public void initialize(){
         board.linkWordProgress(wipLabel);
