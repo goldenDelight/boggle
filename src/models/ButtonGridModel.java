@@ -43,7 +43,7 @@ public class ButtonGridModel {
                 listo.add(bb);
                 board.add(bb,r,c);
 //                bb.setAlignment(Pos.CENTER);
-//                bb.setButtonBounds();
+                bb.setButtonBounds();
             }
         }
     }

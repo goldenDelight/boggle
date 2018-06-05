@@ -1,5 +1,6 @@
 package models;
 
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -35,21 +36,18 @@ public class GraphicsModel {
 
     public void makeCircle(BoggleButton b){
 
-//        System.out.println(b.getX());
-//        System.out.println(b.getY());
-//        System.out.println(b.getLayoutX());
-//        System.out.println(b.getLayoutY());
-//        b.setAlignment(Pos.CENTER);
-        b.setButtonBounds();
+//        b.setButtonBounds();
+        b.setAlignment(Pos.CENTER);
+        final double PADDING_ADJUST = 50;
 
-        double xCord = b.getLayoutX() + b.getX();// + b.getX();
-        double yCord = b.getLayoutY() + b.getY();// + b.getY();
+        double xCord = b.getLayoutX() + b.getX();
+        double yCord = b.getLayoutY() + b.getY();
 
-        Circle circle = new Circle(xCord, yCord, 45, Color.TRANSPARENT);
-        circle.setStrokeWidth(5);
+        Circle circle = new Circle(b.getLayoutX() + PADDING_ADJUST, b.getLayoutY() + PADDING_ADJUST, 40, Color.TRANSPARENT);
+        circle.setStrokeWidth(7);
         circle.setStrokeType(INSIDE);
         circle.setMouseTransparent(true);
-//        circle.relocate(xCord, yCord);
+//        circle.relocate(b.getLayoutX(), b.getLayoutY());
 
         circles.add(circle);
         graphicsPane.getChildren().removeAll(circles);
