@@ -1,15 +1,10 @@
 package controllers;
 
-import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import models.BoardModel;
 import models.BoggleButton;
-
-import java.util.EventListener;
 
 public class BoardController {
 
@@ -31,7 +26,7 @@ public class BoardController {
 
     public void letterClicked(BoggleButton b){
         board.appendWip(b.getLetter());
-        GRAPHICS_CONTROLLER.circleFactory(b);
+        GRAPHICS_CONTROLLER.graphicsFactory(b);
     }
     public void clearWip(){
         board.clearWip();

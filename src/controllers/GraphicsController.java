@@ -2,13 +2,8 @@ package controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import models.BoggleButton;
 import models.GraphicsModel;
-
-import static javafx.scene.shape.StrokeType.INSIDE;
 
 public class GraphicsController {
 
@@ -25,15 +20,11 @@ public class GraphicsController {
         graphics.initialize(graphicsPanel);
     }
 
-    public void circleFactory(BoggleButton b){
-        graphics.makeCircle(b);
-    }
-
-    public void arrowFactory(BoggleButton b){
-        graphics.makeArrows(b);
+    public void graphicsFactory(BoggleButton b){
+        graphics.makeGraphics(b);
     }
 
     public void clearCircles(){
-        graphics.clearCircles();
+        graphics.clearGraphics();
     }
 }

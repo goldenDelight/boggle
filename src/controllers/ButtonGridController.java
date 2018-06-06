@@ -36,7 +36,7 @@ public class ButtonGridController {
             b.offsetX();
             b.offsetY();
             BOARD_CONTROLLER.letterClicked(b);
-//            Circle circle = GRAPHICS_CONTROLLER.makeCircle(b);
+//            Circle circle = GRAPHICS_CONTROLLER.makeGraphics(b);
 //            gridModel.addCircle(circle, b.getR(), b.getC());
         } else if(gridModel.first(b)){
             // trigger cancel action
