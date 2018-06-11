@@ -12,11 +12,11 @@
             fx:controller="Launcher"
             prefHeight="200.0" prefWidth="600.0">
     <left>
-        <fx:include source="FoundPanel.fxml" fx:id="foundView"/>
+            <fx:include source="FoundPanel.fxml" fx:id="foundView"/>
     </left>
     <center>
         <VBox>
-            <fx:include source="WipLabel.fxml"/>
+            <!--<fx:include source="WipLabel.fxml"/>-->
             <fx:include source="GridPanel.fxml"/>
         </VBox>
     </center>

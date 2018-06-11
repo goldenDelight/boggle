@@ -25,7 +25,7 @@ public class ButtonGridModel {
     List<BoggleButton> listo = new ArrayList<>();
     private List<BoggleButton> used = new ArrayList<>();
     private static BoggleButton[][] buttonCoords = new BoggleButton[4][4];
-
+    private static String[][] letterCords = new String[4][4];
     private static ButtonGridController buttonGridController = new ButtonGridController();
 
 
@@ -40,6 +40,7 @@ public class ButtonGridModel {
             for(int r=0; r<4; r++){
                 BoggleButton bb = makeButton(i++, r, c);
                 buttonCoords[r][c] = bb;
+                letterCords[r][c] = bb.getLetter();
                 listo.add(bb);
                 board.add(bb,r,c);
 //                bb.setAlignment(Pos.CENTER);
@@ -53,6 +54,22 @@ public class ButtonGridModel {
         for(BoggleButton b : listo){
             b.setLetter(newLetters.get(i++));
         }
+
+        i = 0;
+        for(int r = 0; r < 4; r++){
+            for(int c = 0; c< 4; c++){
+                letterCords[r][c] = newLetters.get(i++);
+            }
+        }
+    }
+
+    public String[][] getLetterCords(){
+        for(int r = 0; r < 4; r++){
+            for(int c = 0; c < 4; c++){
+                letterCords[r][c] = letterCords[r][c].toLowerCase();
+            }
+        }
+        return letterCords;
     }
     public void resetButtons(){
         used.clear();

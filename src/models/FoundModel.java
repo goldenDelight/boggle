@@ -1,14 +1,14 @@
 package models;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import java.net.URL;
-import java.util.ResourceBundle;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class FoundModel {
 
@@ -19,18 +19,41 @@ public class FoundModel {
     }
 
     private ObservableList<String> listItems = FXCollections.observableArrayList();
+    private int count;
+    private Label countLabel;
+    private List<String> foundWords;
+    private Set<String> solutionSet;
 
 //    Bind alreadyFound panel's listview to the alreadyFound model's observable list
-    public void linkList(ListView<String> view){
+    public void linkList(ListView<String> view, Label count){
+        this.count = 0;
         view.setItems(listItems);
+        countLabel = count;
+        countLabel.setText("Words Found: 0");
+        foundWords = new ArrayList<>();
+        solutionSet = new TreeSet<>();
+    }
+
+    public void setSolution(Set<String> solution){
+        solutionSet = solution;
+        System.out.println("Words Possible: " + solution.size());
+    }
+
+    public Set<String> getSolution(){
+        return solutionSet;
     }
 
     public void addWordFound(String item){
         listItems.add(item);
+        foundWords.add(item);
+        count++;
+        countLabel.setText("Words Found: " + count);
     }
 
     public void clear(){
         listItems.clear();
+        count = 0;
+        countLabel.setText("Words Found: 0");
     }
 
     public boolean alreadyFound(String word){
@@ -39,5 +62,14 @@ public class FoundModel {
         } else {
             return false;
         }
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public int getCount() {
+
+        return count;
     }
 }

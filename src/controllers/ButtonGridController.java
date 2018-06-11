@@ -22,11 +22,15 @@ public class ButtonGridController {
     public void initialize(){
         gridModel.initialize(gameBoard);
         gridModel.rollNewLetters(DICE_CONTROLLER.rollDice());
+        MENU_CONTROLLER.updateDic(gridModel.getLetterCords());
+
     }
 
     public void newRound() {
         List<String> newLetters = DICE_CONTROLLER.rollDice();
+
         gridModel.rollNewLetters(newLetters);
+        MENU_CONTROLLER.updateDic(gridModel.getLetterCords());
     }
 
     public void letterClicked(BoggleButton b){

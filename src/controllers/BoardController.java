@@ -6,6 +6,9 @@ import javafx.scene.layout.StackPane;
 import models.BoardModel;
 import models.BoggleButton;
 
+import java.io.IOException;
+import java.util.Set;
+
 public class BoardController {
 
     private BoardModel board = BoardModel.getModel();
@@ -20,8 +23,9 @@ public class BoardController {
     @FXML
     StackPane stack;
 
-    public void initialize(){
+    public void initialize() throws IOException {
         board.linkWordProgress(wipLabel);
+        board.initialize();
     }
 
     public void letterClicked(BoggleButton b){
@@ -36,7 +40,19 @@ public class BoardController {
         return board.getWip();
     }
 
+    public boolean checkWord(){
+        if(board.check(board.getWip())){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     private boolean validClick(){
         return false;
+    }
+
+    public Set<String> getDic(){
+        return board.getDic();
     }
 }

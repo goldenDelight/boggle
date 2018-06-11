@@ -20,7 +20,7 @@ public class ButtonController {
     final private static GraphicsController GRAPHICS_CONTROLLER = new GraphicsController();
     final private static MenuController MENU_CONTROLLER = new MenuController();
 
-    public void initialize(){
+    public void initialize() {
         gridModel.initialize(gameBoard);
         gridModel.rollNewLetters(DICE_CONTROLLER.rollDice());
     }
@@ -30,23 +30,16 @@ public class ButtonController {
         gridModel.rollNewLetters(newLetters);
     }
 
-    public void letterClicked(BoggleButton b){
-        if(gridModel.valid(b)){
+    public void letterClicked(BoggleButton b) {
+        if (gridModel.first(b)) {
+            MENU_CONTROLLER.cancelButtonClicked(new ActionEvent());
+        } else if (gridModel.last(b)) {
+            if (BOARD_CONTROLLER.checkWord()) {
+                MENU_CONTROLLER.addButtonClicked(new ActionEvent());
+            }
+        } else if (gridModel.valid(b)) {
             BOARD_CONTROLLER.letterClicked(b);
             gridModel.updateBoard(b);
-//            this.gameBoard.add(circle);
-        } else if(gridModel.first(b)){
-            // trigger cancel action
-            MENU_CONTROLLER.cancelButtonClicked(new ActionEvent());
-        } else if(gridModel.last(b)){
-            // trigger submit action
-            MENU_CONTROLLER.addButtonClicked(new ActionEvent());
-        } else {
-            return;
         }
-    }
-
-    public void resetButtons(){
-        gridModel.resetButtons();
     }
 }
