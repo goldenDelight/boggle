@@ -13,8 +13,6 @@ public class BoggleButton extends Button {
     private Bounds buttonBounds;
     private double X;
     private double Y;
-    public double x1,x2,y1,y2;
-
 
     public void setLetter(String letter) {
         this.letter = letter;
@@ -35,14 +33,6 @@ public class BoggleButton extends Button {
             return letter;
         }
 
-    public int getR() {
-        return r;
-    }
-
-    public int getC() {
-        return c;
-    }
-
     public void reset() {
         this.valid = true;
     }
@@ -58,11 +48,6 @@ public class BoggleButton extends Button {
     public void setButtonBounds(){
         buttonBounds = this.localToScene(this.getBoundsInLocal());
     }
-    public Bounds getButtonBounds(){
-        return buttonBounds;
-    }
-
-
 
     public void offsetX(){
         this.X = (this.buttonBounds.getMaxX() - (this.buttonBounds.getMinX()))/2.0;
@@ -70,16 +55,6 @@ public class BoggleButton extends Button {
     public void offsetY(){
         this.Y = (this.buttonBounds.getMaxY() - (this.buttonBounds.getMinY()))/2.0;
     }
-
-
-    public Double getX(){
-        return X;
-    }
-    public Double getY(){
-        return Y;
-    }
-
-
 }
 
 

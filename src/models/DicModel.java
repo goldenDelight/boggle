@@ -42,6 +42,7 @@ public class DicModel {
 
         try {
             boardWordsFinder();
+            System.out.println("word finder activated");
         } catch (Exception e) {
             e.printStackTrace();
         }

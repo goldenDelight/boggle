@@ -5,7 +5,7 @@
 <?import java.util.ArrayList?>
 <GridPane fx:id="gameBoard" prefHeight="450.0" prefWidth="450.0" alignment="CENTER" hgap="10" vgap="10"
           xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="controllers.ButtonGridController">
+          fx:controller="controllers.GridController">
   <columnConstraints>
       <ColumnConstraints prefWidth="100"/>
       <ColumnConstraints prefWidth="100" />

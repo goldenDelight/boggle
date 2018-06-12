@@ -10,7 +10,7 @@ public class GraphicsController {
     private GraphicsModel graphics = GraphicsModel.getModel();
 
     final private static BoardController BOARD_CONTROLLER = new BoardController();
-    final private static ButtonGridController BUTTON_GRID_CONTROLLER = new ButtonGridController();
+    final private static GridController BUTTON_GRID_CONTROLLER = new GridController();
     final private static MenuController MENU_CONTROLLER = new MenuController();
 
     @FXML

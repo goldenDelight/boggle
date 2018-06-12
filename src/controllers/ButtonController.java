@@ -4,14 +4,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;
 import models.BoggleButton;
-import models.ButtonGridModel;
+import models.GridModel;
 
 public class ButtonController {
 
     @FXML
     GridPane gameBoard;
 
-    private static ButtonGridModel gridModel = ButtonGridModel.getModel();
+    private static GridModel gridModel = GridModel.getModel();
 
     final private static BoardController BOARD_CONTROLLER = new BoardController();
     final private static GraphicsController GRAPHICS_CONTROLLER = new GraphicsController();

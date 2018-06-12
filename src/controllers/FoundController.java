@@ -40,6 +40,14 @@ public class FoundController {
     }
 
     public void updateDic(String[][] newLetters){
+
+//        String[][] letters = new String[4][4];
+//
+        for(int i = 0,  r = 0; r < 4; r++){
+            for(int c = 0; c < 4; c++){
+                System.out.print(newLetters[r][c]);;
+            }
+        }
         dictionary.updateBoardLetters(newLetters);
         this.setSolution();
     }
