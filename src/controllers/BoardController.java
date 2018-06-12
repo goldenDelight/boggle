@@ -25,34 +25,18 @@ public class BoardController {
 
     public void initialize() throws IOException {
         board.linkWordProgress(wipLabel);
-        board.initialize();
     }
 
     public void letterClicked(BoggleButton b){
         board.appendWip(b.getLetter());
         GRAPHICS_CONTROLLER.graphicsFactory(b);
     }
-    public void clearWip(){
+    public void clearWIP(){
         board.clearWip();
     }
 
-    public String getWip(){
+    public String getWIP(){
         return board.getWip();
     }
 
-    public boolean checkWord(){
-        if(board.check(board.getWip())){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private boolean validClick(){
-        return false;
-    }
-
-    public Set<String> getDic(){
-        return board.getDic();
-    }
 }

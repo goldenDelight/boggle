@@ -6,7 +6,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -18,19 +17,17 @@ public class FoundModel {
         return model;
     }
 
-    private ObservableList<String> listItems = FXCollections.observableArrayList();
+    private ObservableList<String> foundWords = FXCollections.observableArrayList();
     private int count;
     private Label countLabel;
-    private List<String> foundWords;
     private Set<String> solutionSet;
 
 //    Bind alreadyFound panel's listview to the alreadyFound model's observable list
     public void linkList(ListView<String> view, Label count){
         this.count = 0;
-        view.setItems(listItems);
+        view.setItems(foundWords);
         countLabel = count;
         countLabel.setText("Words Found: 0");
-        foundWords = new ArrayList<>();
         solutionSet = new TreeSet<>();
     }
 
@@ -43,25 +40,21 @@ public class FoundModel {
         return solutionSet;
     }
 
-    public void addWordFound(String item){
-        listItems.add(item);
-        foundWords.add(item);
-        count++;
-        countLabel.setText("Words Found: " + count);
+    public void submitWIP(String item){
+
+        if(solutionSet.contains(item)) {
+            foundWords.add(item);
+            solutionSet.remove(item);
+
+            count++;
+            countLabel.setText("Words Found: " + count);
+        }
     }
 
     public void clear(){
-        listItems.clear();
         count = 0;
         countLabel.setText("Words Found: 0");
-    }
-
-    public boolean alreadyFound(String word){
-        if(listItems.contains(word)){
-            return true;
-        } else {
-            return false;
-        }
+        foundWords.clear();
     }
 
     public void setCount(int count) {

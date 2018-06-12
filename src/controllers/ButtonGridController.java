@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;
 import models.BoggleButton;
 import models.ButtonGridModel;
+import models.DiceModel;
 
 import java.util.List;
 public class ButtonGridController {
@@ -13,22 +14,20 @@ public class ButtonGridController {
     GridPane gameBoard;
 
     private static ButtonGridModel gridModel = ButtonGridModel.getModel();
+    final private static DiceModel dice = DiceModel.getModel();
 
     final private static BoardController BOARD_CONTROLLER = new BoardController();
-    final private static DiceController DICE_CONTROLLER = new DiceController();
     final private static GraphicsController GRAPHICS_CONTROLLER = new GraphicsController();
     final private static MenuController MENU_CONTROLLER = new MenuController();
 
+
     public void initialize(){
         gridModel.initialize(gameBoard);
-        gridModel.rollNewLetters(DICE_CONTROLLER.rollDice());
-        MENU_CONTROLLER.updateDic(gridModel.getLetterCords());
-
+        newRound();
     }
 
     public void newRound() {
-        List<String> newLetters = DICE_CONTROLLER.rollDice();
-
+        List<String> newLetters = dice.reRoll();
         gridModel.rollNewLetters(newLetters);
         MENU_CONTROLLER.updateDic(gridModel.getLetterCords());
     }
@@ -40,14 +39,12 @@ public class ButtonGridController {
             b.offsetX();
             b.offsetY();
             BOARD_CONTROLLER.letterClicked(b);
-//            Circle circle = GRAPHICS_CONTROLLER.makeGraphics(b);
-//            gridModel.addCircle(circle, b.getR(), b.getC());
         } else if(gridModel.first(b)){
             // trigger cancel action
             MENU_CONTROLLER.cancelButtonClicked(new ActionEvent());
         } else if(gridModel.last(b)){
             // trigger submit action
-            MENU_CONTROLLER.addButtonClicked(new ActionEvent());
+            MENU_CONTROLLER.submitButton(new ActionEvent());
         } else {
             return;
         }

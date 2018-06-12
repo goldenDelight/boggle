@@ -13,19 +13,19 @@ public class BottomController {
 
 
     public void addButtonClicked(ActionEvent actionEvent) {
-        foundController.addWord();
-        boardController.clearWip();
+        foundController.submitWIP();
+        boardController.clearWIP();
         buttonGridController.resetButtons();
     }
 
     public void cancelButtonClicked(ActionEvent actionEvent) {
-        boardController.clearWip();
+        boardController.clearWIP();
         buttonGridController.resetButtons();
     }
 
     public void rollButtonClicked(ActionEvent actionEvent) {
-        boardController.clearWip();
-        foundController.clearAll();
+        boardController.clearWIP();
+        foundController.newGame();
         buttonGridController.newRound();
     }
 

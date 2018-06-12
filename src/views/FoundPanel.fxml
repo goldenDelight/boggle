@@ -21,7 +21,7 @@
             <ListView fx:id="foundListView" prefHeight="300" prefWidth="150" />
         </HBox>
 
-        <Label fx:id="numberFound" alignment="CENTER" prefHeight="50" prefWidth="100" text="num words goes here" />
+        <Label fx:id="foundCount" alignment="CENTER" prefHeight="50" prefWidth="100" text="num words goes here" />
 
     </VBox>
 

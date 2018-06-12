@@ -50,25 +50,16 @@ public class ButtonGridModel {
     }
     public void rollNewLetters(List<String> newLetters){
         this.resetButtons();
-        int i=0;
-        for(BoggleButton b : listo){
-            b.setLetter(newLetters.get(i++));
-        }
 
-        i = 0;
-        for(int r = 0; r < 4; r++){
+        for(int i = 0, r = 0; r < 4; r++){
             for(int c = 0; c< 4; c++){
-                letterCords[r][c] = newLetters.get(i++);
+                buttonCoords[r][c].setLetter(newLetters.get(i));
+                letterCords[r][c] = newLetters.get(i++).toLowerCase();
             }
         }
     }
 
     public String[][] getLetterCords(){
-        for(int r = 0; r < 4; r++){
-            for(int c = 0; c < 4; c++){
-                letterCords[r][c] = letterCords[r][c].toLowerCase();
-            }
-        }
         return letterCords;
     }
     public void resetButtons(){

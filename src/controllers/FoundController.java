@@ -19,52 +19,43 @@ public class FoundController {
     @FXML
     ListView<String> foundListView;
     @FXML
-    Label numberFound = new Label();
+    Label foundCount = new Label();
 
 //    Binds ListView of foundView and ObservableList of foundModel
     public void initialize(){
-        found.linkList(foundListView, numberFound);
+        found.linkList(foundListView, foundCount);
         found.setCount(0);
+
         try {
             dictionary.DicMaker();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @FXML
     public void giveUp(){
-        List<String> foundList = new ArrayList<String>(dictionary.getSolution());
+        List<String> foundList = new ArrayList<String>(dictionary.getSolutionSet());
         System.out.println(foundList);
     }
 
     public void updateDic(String[][] newLetters){
         dictionary.updateBoardLetters(newLetters);
+        this.setSolution();
     }
 
     public void setSolution() {
         found.setSolution(dictionary.getfound());
-        System.out.println(dictionary.getSolution().size() + " words possible");
+        System.out.println(dictionary.getSolutionSet().size() + " words possible");
     }
 
-    public void addWord() {
-        if(boardController.checkWord()){
-            found.addWordFound(boardController.getWip());
-        }
-        numberFound.setText("Found Words: " + found.getCount());
+    public void submitWIP() {
+        found.submitWIP(boardController.getWIP());
+        foundCount.setText("Found Words: " + found.getCount());
     }
 
-    public void clearAll() {
+    public void newGame() {
         found.clear();
-        boardController.clearWip();
     }
 
-    public boolean alreadyFound(String word){
-        if(found.alreadyFound(word)){
-            return true;
-        } else {
-            return false;
-        }
-    }
 }

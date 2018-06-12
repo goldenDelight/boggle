@@ -3,11 +3,9 @@ package controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;
-import javafx.scene.shape.Circle;
 import models.BoggleButton;
 import models.ButtonGridModel;
 
-import java.util.List;
 public class ButtonController {
 
     @FXML
@@ -16,30 +14,18 @@ public class ButtonController {
     private static ButtonGridModel gridModel = ButtonGridModel.getModel();
 
     final private static BoardController BOARD_CONTROLLER = new BoardController();
-    final private static DiceController DICE_CONTROLLER = new DiceController();
     final private static GraphicsController GRAPHICS_CONTROLLER = new GraphicsController();
     final private static MenuController MENU_CONTROLLER = new MenuController();
 
     public void initialize() {
         gridModel.initialize(gameBoard);
-        gridModel.rollNewLetters(DICE_CONTROLLER.rollDice());
-    }
-
-    public void newRound() {
-        List<String> newLetters = DICE_CONTROLLER.rollDice();
-        gridModel.rollNewLetters(newLetters);
     }
 
     public void letterClicked(BoggleButton b) {
         if (gridModel.first(b)) {
             MENU_CONTROLLER.cancelButtonClicked(new ActionEvent());
         } else if (gridModel.last(b)) {
-            if (BOARD_CONTROLLER.checkWord()) {
-                MENU_CONTROLLER.addButtonClicked(new ActionEvent());
-            }
-        } else if (gridModel.valid(b)) {
-            BOARD_CONTROLLER.letterClicked(b);
-            gridModel.updateBoard(b);
+                MENU_CONTROLLER.submitButton(new ActionEvent());
         }
     }
 }
