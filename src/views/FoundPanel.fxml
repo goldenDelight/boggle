@@ -8,10 +8,9 @@
 <?import javafx.scene.control.Button?>
 <Pane prefHeight="400.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FoundController">
     <VBox alignment="CENTER" centerShape="false" prefWidth="200">
-        <!--<Label fx:id="wipLabel" text="wip here" prefHeight="50" prefWidth="200" alignment="CENTER" textAlignment="CENTER" style="-fx-border-color: BLACK"/>-->
 
         <Label fx:id="timerLabel" alignment="CENTER" prefHeight="50" prefWidth="150" text="timer here" textAlignment="CENTER" />
-        <Button fx:id="solution" alignment="CENTER" onAction="#giveUp"/>
+        <Button fx:id="solution" text="I Give Up" prefWidth="100" alignment="CENTER" onAction="#giveUp"/>
 
         <HBox prefWidth="10" prefHeight="50" alignment="CENTER">
             <fx:include source="WipLabel.fxml" layoutX="100"/>

@@ -15,11 +15,13 @@
             <fx:include source="FoundPanel.fxml" fx:id="foundView"/>
     </left>
     <center>
-        <VBox>
-            <!--<fx:include source="WipLabel.fxml"/>-->
-            <fx:include source="GridPanel.fxml"/>
-        </VBox>
-    </center>
+        <StackPane xmlns="http://javafx.com/javafx"
+                   xmlns:fx="http://javafx.com/fxml"
+                   prefHeight="500.0" prefWidth="500.0">
+            <fx:include source="ButtonGrid.fxml"/>
+            <fx:include source="GraphicsPanel.fxml" mouseTransparent="true"/>
+
+        </StackPane>    </center>
     <top>
         <fx:include source="MenuBar.fxml" fx:id="bottomView"/>
     </top>

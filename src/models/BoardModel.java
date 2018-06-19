@@ -25,6 +25,8 @@ public class BoardModel {
     private BoggleButton[][] boardLayout = new BoggleButton[4][4];
 
 
+
+
 //    Bind text property of wipLabel to wipProperty
     public void linkWordProgress(Label wipLabel){
         wipLabel.textProperty().bind(wipProperty);

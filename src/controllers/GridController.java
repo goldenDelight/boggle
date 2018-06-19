@@ -22,6 +22,10 @@ public class GridController {
 
 
     public void initialize(){
+
+        System.out.println("Grid Controller Initialized");
+
+
         gridModel.initialize(gameBoard);
         newRound();
     }
@@ -44,7 +48,7 @@ public class GridController {
             MENU_CONTROLLER.cancelButtonClicked(new ActionEvent());
         } else if(gridModel.last(b)){
             // trigger submit action
-            MENU_CONTROLLER.submitButton(new ActionEvent());
+            MENU_CONTROLLER.submitButton(new ActionEvent(), BOARD_CONTROLLER.getWIP());
         } else {
             return;
         }

@@ -9,8 +9,8 @@ public class MenuController {
     final private static GridController GRID_CONTROLLER = new GridController();
     final private static GraphicsController GRAPHICS_CONTROLLER = new GraphicsController();
 
-    public void submitButton(ActionEvent actionEvent) {
-        FOUND_CONTROLLER.submitWIP();
+    public void submitButton(ActionEvent actionEvent, String wip) {
+        FOUND_CONTROLLER.submitWIP(wip);
         BOARD_CONTROLLER.clearWIP();
         GRID_CONTROLLER.resetButtons();
         GRAPHICS_CONTROLLER.clearCircles();

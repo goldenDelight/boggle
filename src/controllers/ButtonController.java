@@ -25,7 +25,7 @@ public class ButtonController {
         if (gridModel.first(b)) {
             MENU_CONTROLLER.cancelButtonClicked(new ActionEvent());
         } else if (gridModel.last(b)) {
-                MENU_CONTROLLER.submitButton(new ActionEvent());
+                MENU_CONTROLLER.submitButton(new ActionEvent(), BOARD_CONTROLLER.getWIP());
         }
     }
 }

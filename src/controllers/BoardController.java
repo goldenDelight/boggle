@@ -20,6 +20,9 @@ public class BoardController {
     Label wipLabel;
 
     public void initialize() throws IOException {
+
+        System.out.println("Board Controller Initialized");
+
         board.linkWordProgress(wipLabel);
     }
 
