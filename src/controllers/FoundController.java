@@ -37,11 +37,7 @@ public class FoundController {
 
     @FXML
     public void giveUp(){
-//        List<String> foundList = new ArrayList<String>(dictionary.getSolutionSet());
-
         found.compileFinalList(foundListView);
-
-//        System.out.println(foundList);
     }
 
     public void updateDic(String[][] newLetters){
