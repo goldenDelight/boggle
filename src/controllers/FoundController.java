@@ -9,6 +9,7 @@ import models.FoundModel;
 import java.io.IOException;
 
 public class FoundController {
+
     private DicModel dictionary = DicModel.getModel();
     private FoundModel found = FoundModel.getModel();
     private static WipController wipController = new WipController();
