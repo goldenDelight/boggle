@@ -1,28 +1,20 @@
 package models;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.*;
-
-public class BoardModel {
+public class WipModel {
 
 //    Singleton Initialization
-    private final static BoardModel model = new BoardModel();
-    public static BoardModel getModel(){
+    private final static WipModel model = new WipModel();
+    public static WipModel getModel(){
         return model;
     }
 
     private String wip = "";
     private StringProperty wipProperty = new SimpleStringProperty("");
-    private BoggleButton[][] boardLayout = new BoggleButton[4][4];
+//    private BoggleButton[][] boardLayout = new BoggleButton[4][4];
 
 
 

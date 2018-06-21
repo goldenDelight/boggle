@@ -2,40 +2,34 @@ package controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
-import models.BoardModel;
+import models.WipModel;
 import models.BoggleButton;
 
 import java.io.IOException;
 
 public class WipController {
 
-    private BoardModel board = BoardModel.getModel();
+    private WipModel wip = WipModel.getModel();
 
-    final private static GridController BUTTON_GRID_CONTROLLER = new GridController();
     final private static GraphicsController GRAPHICS_CONTROLLER = new GraphicsController();
-    final private static FoundController FOUND_CONTROLLER = new FoundController();
 
     @FXML
     Label wipLabel;
 
     public void initialize() throws IOException {
-
-        System.out.println("Board Controller Initialized");
-
-        board.linkWordProgress(wipLabel);
+        wip.linkWordProgress(wipLabel);
     }
 
     public void letterClicked(BoggleButton b){
-        board.appendWip(b.getLetter());
+        wip.appendWip(b.getLetter());
         GRAPHICS_CONTROLLER.graphicsFactory(b);
     }
 
     public void clearWIP(){
-        board.clearWip();
+        wip.clearWip();
     }
 
     public String getWIP(){
-        return board.getWip();
+        return wip.getWip();
     }
 }

@@ -4,10 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;
 import models.BoggleButton;
-import models.GridModel;
 import models.DiceModel;
+import models.GridModel;
 
 import java.util.List;
+
 public class GridController {
 
     @FXML
@@ -15,17 +16,10 @@ public class GridController {
 
     private static GridModel gridModel = GridModel.getModel();
     final private static DiceModel dice = DiceModel.getModel();
-
     final private static WipController BOARD_CONTROLLER = new WipController();
-    final private static GraphicsController GRAPHICS_CONTROLLER = new GraphicsController();
     final private static MenuController MENU_CONTROLLER = new MenuController();
 
-
     public void initialize(){
-
-        System.out.println("Grid Controller Initialized");
-
-
         gridModel.initialize(gameBoard);
         newRound();
     }
