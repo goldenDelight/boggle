@@ -9,7 +9,6 @@ import models.FoundModel;
 import java.io.IOException;
 
 public class FoundController {
-
     private DicModel dictionary = DicModel.getModel();
     private FoundModel found = FoundModel.getModel();
     private static WipController wipController = new WipController();
@@ -20,6 +19,30 @@ public class FoundController {
     @FXML
     Label foundCount = new Label();
 
+//    Binds ListView of foundView and ObservableList of foundModel
+    public void initialize(){
+
+        System.out.println("Found Controller Initialized");
+
+
+        found.linkList(foundListView, foundCount);
+        found.setCount(0);
+
+        try {
+            dictionary.DicMaker();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void giveUp(){
+        found.compileFinalList(foundListView);
+    }
+
+    public void updateDic(String[][] newLetters){
+
+        for(int i = 0,  r = 0; r < 4; r++){
             for(int c = 0; c < 4; c++){
                 System.out.print(newLetters[r][c]);;
             }
