@@ -16,7 +16,7 @@ public class GridController {
     private static GridModel gridModel = GridModel.getModel();
     final private static DiceModel dice = DiceModel.getModel();
 
-    final private static BoardController BOARD_CONTROLLER = new BoardController();
+    final private static WipController BOARD_CONTROLLER = new WipController();
     final private static GraphicsController GRAPHICS_CONTROLLER = new GraphicsController();
     final private static MenuController MENU_CONTROLLER = new MenuController();
 
@@ -39,9 +39,6 @@ public class GridController {
     public void letterClicked(BoggleButton b){
         if(gridModel.valid(b)){
             gridModel.updateBoard(b);
-            b.setButtonBounds();
-            b.offsetX();
-            b.offsetY();
             BOARD_CONTROLLER.letterClicked(b);
         } else if(gridModel.first(b)){
             // trigger cancel action

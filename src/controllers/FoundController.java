@@ -7,13 +7,11 @@ import models.DicModel;
 import models.FoundModel;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class FoundController {
     private DicModel dictionary = DicModel.getModel();
     private FoundModel found = FoundModel.getModel();
-    private static BoardController boardController = new BoardController();
+    private static WipController wipController = new WipController();
 
     @FXML
     ListView<String> foundListView;

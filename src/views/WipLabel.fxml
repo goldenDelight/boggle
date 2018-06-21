@@ -8,7 +8,7 @@
 
 <Pane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.BoardController"
+            fx:controller="controllers.WipController"
             prefHeight="50.0" prefWidth="150.0">
 
     <VBox alignment="CENTER" prefWidth="150" prefHeight="50">

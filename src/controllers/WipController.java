@@ -8,7 +8,7 @@ import models.BoggleButton;
 
 import java.io.IOException;
 
-public class BoardController {
+public class WipController {
 
     private BoardModel board = BoardModel.getModel();
 

@@ -5,7 +5,7 @@ import javafx.event.ActionEvent;
 public class MenuController {
 
     final private static FoundController FOUND_CONTROLLER = new FoundController();
-    final private static BoardController BOARD_CONTROLLER = new BoardController();
+    final private static WipController BOARD_CONTROLLER = new WipController();
     final private static GridController GRID_CONTROLLER = new GridController();
     final private static GraphicsController GRAPHICS_CONTROLLER = new GraphicsController();
 

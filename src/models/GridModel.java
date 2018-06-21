@@ -27,10 +27,7 @@ public class GridModel {
 
         System.out.println("Grid Model Initialized");
 
-
         board = gameBoard;
-
-//        double x1, x2, x3, x4, y1, y2, y3, y4;
 
         for(int i=0, c=0; c<4; c++){
             for(int r=0; r<4; r++){
@@ -93,14 +90,11 @@ public class GridModel {
 
     private BoggleButton makeButton(int i, int r, int c){
         BoggleButton bb = new BoggleButton(i, r, c);
-        bb.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                BoggleButton buttonClicked = (BoggleButton) event.getSource();
-                gridController.letterClicked(buttonClicked);
-            }
-        });
+        bb.setOnAction(event -> gridController.letterClicked(bb));
+
+
         return bb;
+
     }
 
     public boolean valid(BoggleButton b) {
@@ -124,12 +118,4 @@ public class GridModel {
         }
         return false;
     }
-
-//    public void addCircle(Circle circle, int c, int r){
-//        circle.setStrokeWidth(5);
-//        circle.setStrokeType(INSIDE);
-//        circle.setStroke(Color.STEELBLUE);
-//        circle.setMouseTransparent(true);
-//        board.add(circle, c, r);
-//    }
 }
