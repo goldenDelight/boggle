@@ -37,7 +37,9 @@ public class FoundController {
 
     @FXML
     public void giveUp(){
-        found.compileFinalList(foundListView);
+//        foundListView.getItems().clear();
+//        foundListView.setItems(found.compileFinalList());
+        found.giveUp();
     }
 
     public void updateDic(String[][] newLetters){
@@ -59,9 +61,16 @@ public class FoundController {
     public void submitWIP(String wip) {
         found.submit(wip);
         foundCount.setText("Found Words: " + found.getCount());
+        this.clearWIP();
+    }
+
+    public void clearWIP(){
+        wipController.clearWIP();
     }
 
     public void newGame() {
-        found.clear();
+        found.clear(foundListView);
+        wipController.clearWIP();
     }
+
 }

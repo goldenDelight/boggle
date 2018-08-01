@@ -10,6 +10,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class FoundModel {
@@ -23,7 +24,7 @@ public class FoundModel {
     private ObservableList<String> foundWords = FXCollections.observableArrayList();
     private int count;
     private Label countLabel;
-    private Set<String> solutionSet;
+    private TreeMap<String, Boolean> solutionSet;
     private int score;
     private int finalScore;
     private int finalCount;
@@ -36,7 +37,7 @@ public class FoundModel {
         view.setItems(foundWords);
         countLabel = count;
         countLabel.setText("Found: 0" + "\nScore: 0");
-        solutionSet = new TreeSet<>();
+        solutionSet = new TreeMap<>();
 
         foundWords.addListener(new ListChangeListener<String>() {
             @Override
@@ -46,22 +47,22 @@ public class FoundModel {
         });
     }
 
-    public void setSolution(Set<String> solution){
+    public void setSolution(TreeMap<String, Boolean> solution){
         solutionSet = solution;
         System.out.println("Words Possible: " + solution.size());
     }
 
-    public Set<String> getSolution(){
+    public TreeMap<String, Boolean> getSolution(){
         return solutionSet;
     }
 
     public void submit(String item){
 
-        if(solutionSet.contains(item)) {
+        if(solutionSet.get(item) == false) {
             String x = pointValue(item) + "\t";
             foundWords.add(x + item);
             score += pointValue(item);
-            solutionSet.remove(item);
+            solutionSet.replace(item, true);
 
             count++;
             countLabel.setText("Found: " + count +
@@ -69,10 +70,12 @@ public class FoundModel {
         }
     }
 
-    public void clear(){
+    public void clear(ListView<String> view){
         count = 0;
         countLabel.setText("Found: 0" + "\nScore: 0");
         foundWords.clear();
+        solutionSet.clear();
+//        view.setItems(foundWords);
         score = 0;
     }
 
@@ -99,7 +102,7 @@ public class FoundModel {
         }
     }
 
-    public void compileFinalList(ListView<String> view){
+    public ObservableList<String> compileFinalList(){
         finalCount = count;
         finalScore = score;
 
@@ -108,22 +111,49 @@ public class FoundModel {
 
         ObservableList<String> complete = FXCollections.observableArrayList();
 
-        for(String word : solutionSet){
+        for(String word : solutionSet.keySet()){
             Text x = new Text(pointValue(word) + "\t" + word);
             maxScore += pointValue(word);
             maxCount++;
-            if(foundWords.contains(word)){
-                x.setFont(Font.font(String.valueOf(FontWeight.BOLD)));
-            }
 
-            String y = x.getText();
-            complete.add(y);
+//            complete.add(pointValue(word) + "\t" + word);
 
+//            if(solutionSet.get(word)){
+//                x.setFont(Font.font(String.valueOf(FontWeight.BOLD)));
+//            }
+//
+//            String y = x.getText();
+//            complete.add(y);
         }
-        view.setItems(complete);
 
         countLabel.setText("Found: " + count + "/" + maxCount +
                 "\nScore: " + score + "/" + maxScore);
+
+        return complete;
+
+    }
+
+    public void giveUp(){
+
+        int maxScore = 0;
+        int maxCount = 0;
+
+        for(String word : solutionSet.keySet()) {
+            maxScore += pointValue(word);
+            maxCount++;
+
+            if(solutionSet.get(word) == false) {
+                String x = pointValue(word) + "\t";
+                foundWords.add(x + word);
+            } else if(solutionSet.get(word) == true) {
+                String x = pointValue(word) + "\t";
+                foundWords.add(x + word);
+            }
+        }
+
+        countLabel.setText("Found: " + count + "/" + maxCount +
+                "\nScore: " + score + "/" + maxScore);
+
 
     }
 

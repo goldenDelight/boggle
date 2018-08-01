@@ -11,7 +11,7 @@ public class DicModel {
 
     private String[][] board = new String[4][4];
     private HashSet<String> masterDic = new HashSet<>();
-    private TreeSet<String> solutionSet = new TreeSet<>();
+    private TreeMap<String, Boolean> solutionSet = new TreeMap<>();
 
     Path masterDicPath = FileSystems.getDefault().getPath("words.txt");
 
@@ -48,7 +48,7 @@ public class DicModel {
         }
     }
 
-    public Set<String> getSolutionSet(){
+    public TreeMap<String, Boolean> getSolutionSet(){
         return solutionSet;
     }
 
@@ -84,7 +84,7 @@ public class DicModel {
             parentDic.remove(word.toUpperCase());
 
 //            Add matching word to list of found words
-            solutionSet.add(word.toUpperCase());
+            solutionSet.put(word.toUpperCase(), false);
 
         }
 
@@ -208,7 +208,7 @@ public class DicModel {
         return;
     }
 
-    public Set<String> getfound(){
+    public TreeMap<String, Boolean> getfound(){
         return solutionSet;
     }
 }

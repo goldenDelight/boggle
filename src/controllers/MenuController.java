@@ -18,6 +18,7 @@ public class MenuController {
 
     public void cancelButtonClicked(ActionEvent actionEvent) {
         BOARD_CONTROLLER.clearWIP();
+        FOUND_CONTROLLER.clearWIP();
         GRID_CONTROLLER.resetButtons();
         GRAPHICS_CONTROLLER.clearCircles();
     }
@@ -27,10 +28,11 @@ public class MenuController {
         FOUND_CONTROLLER.newGame();
         GRAPHICS_CONTROLLER.clearCircles();
         GRID_CONTROLLER.newRound();
+        FOUND_CONTROLLER.clearWIP();
+
     }
 
     public void updateDic(String[][] newLetters){
-
         FOUND_CONTROLLER.updateDic(newLetters);
     }
 

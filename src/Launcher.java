@@ -23,7 +23,7 @@ public class Launcher extends Application{
         Stage game = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("views/Main.fxml"));
 
-        game.setTitle("Game On!");
+        game.setTitle("Dodgeball!");
         game.setScene(new Scene(root, 650, 600));
         game.show();
 
@@ -33,7 +33,7 @@ public class Launcher extends Application{
     public void start (Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("views/Main.fxml"));
 
-        primaryStage.setTitle("Game On!");
+        primaryStage.setTitle("Dodgeball!");
         primaryStage.setScene(new Scene(root, 700, 575));
         primaryStage.show();
 
