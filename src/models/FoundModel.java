@@ -77,7 +77,6 @@ public class FoundModel {
         countLabel.setText("Found: 0" + "\nScore: 0");
         foundWords.clear();
         solutionSet.clear();
-//        view.setItems(foundWords);
         score = 0;
     }
 
@@ -139,6 +138,9 @@ public class FoundModel {
 
         int maxScore = 0;
         int maxCount = 0;
+
+        foundWords.clear();
+
 
         for(String word : solutionSet.keySet()) {
             maxScore += pointValue(word);

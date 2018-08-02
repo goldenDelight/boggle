@@ -37,8 +37,6 @@ public class FoundController {
 
     @FXML
     public void giveUp(){
-//        foundListView.getItems().clear();
-//        foundListView.setItems(found.compileFinalList());
         found.giveUp();
     }
 
