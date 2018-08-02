@@ -58,7 +58,7 @@ public class FoundModel {
 
     public void submit(String item){
 
-        if(solutionSet.get(item) == false) {
+        if(solutionSet.get(item) != null && solutionSet.get(item) == false) {
             String x = pointValue(item) + "\t";
             foundWords.add(x + item);
             score += pointValue(item);
@@ -67,6 +67,8 @@ public class FoundModel {
             count++;
             countLabel.setText("Found: " + count +
                                 "\nScore: " + score);
+        } else {
+            System.out.println("dumbass");
         }
     }
 
