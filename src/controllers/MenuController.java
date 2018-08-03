@@ -8,6 +8,7 @@ public class MenuController {
     final private static BoardController BOARD_CONTROLLER = new BoardController();
     final private static GridController GRID_CONTROLLER = new GridController();
     final private static GraphicsController GRAPHICS_CONTROLLER = new GraphicsController();
+    final private static TimerController TIMER_CONTROLLER = new TimerController();
 
     public void submitButton(ActionEvent actionEvent, String wip) {
         FOUND_CONTROLLER.submitWIP(wip);

@@ -9,7 +9,9 @@
 <Pane prefHeight="400.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FoundController">
     <VBox alignment="CENTER" centerShape="false" prefWidth="200">
 
-        <Label fx:id="timerLabel" alignment="CENTER" prefHeight="50" prefWidth="150" text="timer here" textAlignment="CENTER" />
+        <fx:include source="TimePanel.fxml" layoutX="100"/>
+
+        <!--<Label fx:id="timerLabel" alignment="CENTER" prefHeight="50" prefWidth="150" text="timer here" textAlignment="CENTER" />-->
         <Button fx:id="solution" text="I Give Up" prefWidth="100" alignment="CENTER" onAction="#giveUp"/>
 
         <HBox prefWidth="10" prefHeight="50" alignment="CENTER">
@@ -20,7 +22,7 @@
             <ListView fx:id="foundListView" prefHeight="300" prefWidth="150" />
         </HBox>
 
-        <Label fx:id="foundCount" alignment="CENTER" prefHeight="50" prefWidth="100" text="num words goes here" />
+        <Label fx:id="foundCount" alignment="CENTER" prefHeight="50" prefWidth="100" text="" />
 
     </VBox>
 

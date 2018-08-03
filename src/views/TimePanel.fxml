@@ -8,8 +8,8 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.timeController"
-            prefHeight="400.0" prefWidth="600.0">
+            fx:controller="controllers.TimerController"
+            prefHeight="40.0" prefWidth="60.0">
 
     <Label fx:id="timerLabel" alignment="CENTER" textAlignment="CENTER" text="here we go"/>
 </AnchorPane>

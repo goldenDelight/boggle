@@ -36,7 +36,7 @@ public class FoundModel {
         score = 0;
         view.setItems(foundWords);
         countLabel = count;
-        countLabel.setText("Found: 0" + "\nScore: 0");
+//        countLabel.setText("Found: 0" + "\nScore: 0");
         solutionSet = new TreeMap<>();
 
         foundWords.addListener(new ListChangeListener<String>() {
@@ -58,23 +58,25 @@ public class FoundModel {
 
     public void submit(String item){
 
-        if(solutionSet.get(item) != null && solutionSet.get(item) == false) {
+        if(solutionSet.get(item) == null){
+            System.out.println("\"" + item + "\"" + "...seriously?");
+        } else if(solutionSet.get(item) == true) {
+            System.out.println("maybe find a *new* word? ");
+        } else {
             String x = pointValue(item) + "\t";
             foundWords.add(x + item);
             score += pointValue(item);
             solutionSet.replace(item, true);
 
             count++;
-            countLabel.setText("Found: " + count +
-                                "\nScore: " + score);
-        } else {
-            System.out.println("dumbass");
+//            countLabel.setText("Found: " + count +
+//                                "\nScore: " + score);
         }
     }
 
     public void clear(ListView<String> view){
         count = 0;
-        countLabel.setText("Found: 0" + "\nScore: 0");
+//        countLabel.setText("Found: 0" + "\nScore: 0");
         foundWords.clear();
         solutionSet.clear();
         score = 0;
