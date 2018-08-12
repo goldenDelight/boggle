@@ -1,71 +1,84 @@
 package models;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.control.Button;
+import javafx.application.Platform;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
-public class TimerModel implements EventHandler<ActionEvent>, Runnable {
+import java.util.concurrent.atomic.AtomicBoolean;
 
-    private final int START_TIME = 180;
-    private static int seconds;
-    private static boolean running;
-    private static Thread counter;
+public class TimerModel implements Runnable{
 
-    public TimerModel(){
-        seconds = START_TIME;
-        running = true;
+    private final static TimerModel model = new TimerModel();
+    public static TimerModel getModel(){
+        return model;
     }
 
-    public static void countdown() {
-        System.out.println("countdown initiated");
-        try {
-            System.out.println("?");
-            for (int i = seconds; i > 0; i--) {
-                if (!running) {
-                    Thread.currentThread().sleep(100000000);
-                } else {
+//    private final static AtomicBoolean running = new AtomicBoolean(false);
+    private StringProperty time = new SimpleStringProperty(this, "time", "3:00");
+    private BooleanProperty completed = new SimpleBooleanProperty(this, "completed", false);
+    private Thread t;
+
+    public void run() {
+
+        for (int minutes = 2; minutes >= 0; minutes--) {
+            for (int seconds = 59; seconds >= 0; seconds--) {
+
+                try {
                     Thread.sleep(1000);
-                    System.out.println(i + " seconds");
-                    seconds = i;
-                }
-                if (seconds == 0) {
-                    System.out.println("DONE!");
+                    time.setValue(String.format(minutes + ":" + ("%02d"), seconds));
+                } catch (InterruptedException e) {
+                    time.setValue("3:00");
+                    System.out.println("timer interrupted");
+                    return;
                 }
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
+        Platform.runLater(() -> completed.setValue(true));
     }
 
-    @Override
-    public void run() {
-        System.out.println("BT run fired");
-        Thread counter = new Thread(TimerModel::countdown);
-        counter.start();
+    public void refreshTimer(){
+        completed.setValue(false);
+        time.setValue("3:00");
+        t = new Thread(this);
+        t.start();
     }
 
-    @Override
-    public void handle(ActionEvent event) {
-        Button button = (Button) event.getSource();
-
-        if (button.getText().equals("start")) {
-            System.out.println("BT 'start' event registered");
-            resume();
-        }
-        if (button.getText().equals("stop")) {
-            System.out.println("BT 'stop' event registered");
-            running = false;
-        }
-    }
-    public static void freeze() {
-        System.out.println("freezing timer?");
-        running = false;
+    public boolean getCompleted() {
+        return completedProperty().get();
     }
 
-    public static void resume() {
-        System.out.println("resuming timer?");
-        running = true;
-        new Thread(() -> TimerModel.countdown());
+    public BooleanProperty completedProperty() {
+        return completed;
     }
 
+    public void setCompleted(boolean completed) {
+        completedProperty().set(completed);
+    }
+
+    public void interruptThread(){
+        t.interrupt();
+    }
+
+    public void stopThread(){
+//        running.set(false);
+//        t.interrupt();
+    }
+
+    public boolean checkComplete(){
+        return completed.getValue();
+    }
+
+    public StringProperty timeProperty() {
+        return time;
+    }
+
+    public String getTime() {
+        return time.get();
+    }
+
+    public void bindWith(StringProperty tm){
+        time = tm;
+    }
 }

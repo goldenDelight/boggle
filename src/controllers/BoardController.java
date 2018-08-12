@@ -34,7 +34,7 @@ public class BoardController {
 
     public void initialize(){
 
-        System.out.println("Board Controller Initialized");
+//        System.out.println("Board Controller Initialized");
 
         gridModel.initialize(gameBoard);
         newRound();

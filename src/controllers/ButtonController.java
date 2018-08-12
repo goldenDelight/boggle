@@ -18,7 +18,7 @@ public class ButtonController {
     final private static MenuController MENU_CONTROLLER = new MenuController();
 
     public void initialize() {
-        System.out.println("Button Controller Initialized");
+//        System.out.println("Button Controller Initialized");
     }
 
     public void letterClicked(BoggleButton b) {

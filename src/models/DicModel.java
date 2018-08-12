@@ -25,7 +25,7 @@ public class DicModel {
 
         try {
             BufferedReader masterReader = Files.newBufferedReader(masterDicPath);
-            System.out.println("reader made");
+//            System.out.println("reader made");
 
             while (masterReader.ready()) {
                 masterDic.add(masterReader.readLine());
@@ -42,7 +42,7 @@ public class DicModel {
 
         try {
             boardWordsFinder();
-            System.out.println("word finder activated");
+//            System.out.println("word finder activated");
         } catch (Exception e) {
             e.printStackTrace();
         }

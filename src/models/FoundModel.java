@@ -76,7 +76,7 @@ public class FoundModel {
 
     public void clear(ListView<String> view){
         count = 0;
-//        countLabel.setText("Found: 0" + "\nScore: 0");
+        countLabel.setText("Found: 0" + "\nScore: 0");
         foundWords.clear();
         solutionSet.clear();
         score = 0;
@@ -136,7 +136,7 @@ public class FoundModel {
 
     }
 
-    public void giveUp(){
+    public void timeUp(){
 
         int maxScore = 0;
         int maxCount = 0;

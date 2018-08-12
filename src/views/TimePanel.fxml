@@ -11,5 +11,6 @@
             fx:controller="controllers.TimerController"
             prefHeight="40.0" prefWidth="60.0">
 
-    <Label fx:id="timerLabel" alignment="CENTER" textAlignment="CENTER" text="here we go"/>
+    <Label fx:id="timeLabel" alignment="CENTER" textAlignment="CENTER" text="3:00"/>
+
 </AnchorPane>

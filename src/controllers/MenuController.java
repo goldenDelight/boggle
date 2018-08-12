@@ -1,6 +1,7 @@
 package controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 
 public class MenuController {
 
@@ -25,12 +26,12 @@ public class MenuController {
     }
 
     public void rollButtonClicked(ActionEvent actionEvent) {
+        TIMER_CONTROLLER.refreshTimer();
         BOARD_CONTROLLER.clearWIP();
         FOUND_CONTROLLER.newGame();
         GRAPHICS_CONTROLLER.clearCircles();
         GRID_CONTROLLER.newRound();
         FOUND_CONTROLLER.clearWIP();
-
     }
 
     public void updateDic(String[][] newLetters){

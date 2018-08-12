@@ -25,7 +25,7 @@ public class GridModel {
 
     public void initialize(GridPane gameBoard){
 
-        System.out.println("Grid Model Initialized");
+//        System.out.println("Grid Model Initialized");
 
         board = gameBoard;
 

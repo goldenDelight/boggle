@@ -13,8 +13,8 @@
     <menus>
         <Menu text="File">
             <MenuItem fx:id="exit" text="Exit" onAction="#close"/>
-            <MenuItem fx:id="restart" text="Restart"/>
-            <MenuItem fx:id="newGame" onAction="#rollButtonClicked" text="New Game"/>
+            <MenuItem fx:id="stop" text="Stop"/>
+            <MenuItem fx:id="new" text="New Game" onAction="#rollButtonClicked"/>
         </Menu>
         <Menu text="Edit"/>
         <Menu text="View"/>
