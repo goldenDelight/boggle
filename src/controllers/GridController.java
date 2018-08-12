@@ -19,18 +19,25 @@ public class GridController {
     final private static WipController BOARD_CONTROLLER = new WipController();
     final private static MenuController MENU_CONTROLLER = new MenuController();
 
+    private static boolean isOver = false;
+
     public void initialize(){
         gridModel.initialize(gameBoard);
         newRound();
     }
 
     public void newRound() {
+        isOver = false;
         List<String> newLetters = dice.reRoll();
         gridModel.rollNewLetters(newLetters);
         MENU_CONTROLLER.updateDic(gridModel.getLetterCords());
     }
 
     public void letterClicked(BoggleButton b){
+
+        if(isOver){
+            return;
+        }
         if(gridModel.valid(b)){
             gridModel.updateBoard(b);
             BOARD_CONTROLLER.letterClicked(b);
@@ -48,4 +55,9 @@ public class GridController {
     public void resetButtons(){
         gridModel.resetButtons();
     }
+
+    public void endRound(){
+        isOver = true;
+    }
+
 }

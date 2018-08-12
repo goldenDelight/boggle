@@ -13,19 +13,17 @@ import javafx.scene.layout.GridPane;
 import models.TimerModel;
 
 public class TimerController {
+    final private static MenuController MENU_CONTROLLER = new MenuController();
+//    final private static FoundController FOUND_CONTROLLER = new FoundController();
 
-    final private static FoundController FOUND_CONTROLLER = new FoundController();
-
-    //    Global instance of my timer
-
-    //    Declaring the fxml label as global
+//  create reference to visible timer in game window
     @FXML
     Label timeLabel = new Label();
 
-
+//  create reference to the singleton timer
     private TimerModel timer = TimerModel.getModel();
 
-    //    sets timer at time of initialization
+//    adds listeners to timer's properties, and starts countdown
     public void initialize(){
         addListeners();
         timer.refreshTimer();
@@ -36,20 +34,24 @@ public class TimerController {
         timer.refreshTimer();
     }
 
-    public void stopTimer(ActionEvent iGiveUp){
+    public void endRound(){
+
+    }
+
+    public void stopTimer(){
         timer.interruptThread();
     }
 
     private void addListeners(){
+//        changeListener updates timeLabel when timeProperty changes
         timer.timeProperty().addListener( (v, oldValue, newValue) -> {
             Platform.runLater(() -> timeLabel.setText(timer.getTime()));
-            System.out.println(timer.getTime());
+//            System.out.println(timer.getTime());
         });
 
+//        changeListener triggers end of round when completedProperty becomes true
         timer.completedProperty().addListener((observable, oldValue, newValue) ->  {
-//            if (newValue) {
-                FOUND_CONTROLLER.endRound(new ActionEvent());
-//            }
+            MENU_CONTROLLER.endRound(new ActionEvent());
         });
     }
 }

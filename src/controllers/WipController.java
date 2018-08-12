@@ -13,6 +13,8 @@ public class WipController {
 
     final private static GraphicsController GRAPHICS_CONTROLLER = new GraphicsController();
 
+    private static boolean isOver = false;
+
     @FXML
     Label wipLabel;
 
@@ -21,6 +23,10 @@ public class WipController {
     }
 
     public void letterClicked(BoggleButton b){
+
+        if(isOver){
+            return;
+        }
         wip.appendWip(b.getLetter());
         GRAPHICS_CONTROLLER.graphicsFactory(b);
     }
@@ -31,5 +37,9 @@ public class WipController {
 
     public String getWIP(){
         return wip.getWip();
+    }
+
+    public void endRound(){
+        isOver = true;
     }
 }

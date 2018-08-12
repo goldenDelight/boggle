@@ -11,6 +11,7 @@ import javax.swing.*;
 import java.io.IOException;
 
 public class FoundController {
+    final private static MenuController MENU_CONTROLLER = new MenuController();
     private DicModel dictionary = DicModel.getModel();
     private FoundModel found = FoundModel.getModel();
     private static WipController wipController = new WipController();
@@ -37,22 +38,15 @@ public class FoundController {
         }
     }
 
-    public void endRound(ActionEvent timeUp){
+    public void endRound(){
         found.timeUp();
     }
 
     public void giveUp(){
-        TIMER_CONTROLLER.stopTimer(new ActionEvent());
-        found.timeUp();
+        MENU_CONTROLLER.endRound(new ActionEvent());
     }
 
     public void updateDic(String[][] newLetters){
-
-//        for(int i = 0,  r = 0; r < 4; r++){
-//            for(int c = 0; c < 4; c++){
-//                System.out.print(newLetters[r][c]);;
-//            }
-//        }
         dictionary.updateBoardLetters(newLetters);
         this.setSolution();
     }

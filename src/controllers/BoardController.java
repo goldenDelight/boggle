@@ -18,11 +18,11 @@ public class BoardController {
     private static GridModel gridModel = GridModel.getModel();
     final private static DiceModel dice = DiceModel.getModel();
 
-
     final private static GraphicsController GRAPHICS_CONTROLLER = new GraphicsController();
     final private static MenuController MENU_CONTROLLER = new MenuController();
     final private static FoundController FOUND_CONTROLLER = new FoundController();
 
+    private static boolean isOver = false;
 
     @FXML
     GridPane gameBoard;
@@ -31,22 +31,22 @@ public class BoardController {
     Label wipLabel;
 
 
-
     public void initialize(){
-
-//        System.out.println("Board Controller Initialized");
-
         gridModel.initialize(gameBoard);
         newRound();
     }
 
     public void newRound() {
+        isOver = false;
         List<String> newLetters = dice.reRoll();
         gridModel.rollNewLetters(newLetters);
         MENU_CONTROLLER.updateDic(gridModel.getLetterCords());
     }
 
     public void letterClicked(BoggleButton b){
+        if(isOver){
+            return;
+        }
         if(gridModel.valid(b)){
             gridModel.updateBoard(b);
             b.setButtonBounds();
@@ -75,5 +75,9 @@ public class BoardController {
 
     public String getWIP(){
         return board.getWip();
+    }
+
+    public void endRound(){
+        isOver = true;
     }
 }
