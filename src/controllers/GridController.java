@@ -34,7 +34,6 @@ public class GridController {
     }
 
     public void letterClicked(BoggleButton b){
-
         if(isOver){
             return;
         }

@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.util.List;
 public class BoardController {
 
-
     private BoardModel board = BoardModel.getModel();
     private static GridModel gridModel = GridModel.getModel();
     final private static DiceModel dice = DiceModel.getModel();

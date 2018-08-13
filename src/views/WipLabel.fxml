@@ -13,7 +13,7 @@
 
     <VBox alignment="CENTER" prefWidth="150" prefHeight="50">
 
-        <Label fx:id="wipLabel" prefHeight="50" prefWidth="200" alignment="CENTER" textAlignment="CENTER"/>
+        <Label fx:id="wipLabel" prefWidth="150" prefHeight="50" alignment="CENTER" textAlignment="CENTER"/>
 
     </VBox>
 
