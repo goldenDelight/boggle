@@ -9,12 +9,11 @@
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       prefHeight="400.0" prefWidth="500.0"
-      fx:controller="controllers.BoardController">
+      fx:controller="views.BoardView">
 
-    <fx:include source="WipLabel.fxml"/>
+    <Label fx:id="currentWordLabel" prefWidth="150" prefHeight="50" alignment="CENTER" textAlignment="CENTER"/>
 
     <StackPane fx:id="boggleBoard" prefHeight="500" prefWidth="500">
-
         <GridPane fx:id="gameBoard" prefHeight="450.0" prefWidth="450.0" hgap="10" vgap="10">
             <columnConstraints>
                 <ColumnConstraints prefWidth="100"/>
@@ -29,9 +28,7 @@
                 <RowConstraints prefHeight="100" />
             </rowConstraints>
         </GridPane>
-
-        <fx:include source="GraphicsPanel.fxml" mouseTransparent="true"/>
-
+        <Pane fx:id="graphicsPanel" prefHeight="400.0" prefWidth="500.0" mouseTransparent="true"/>
     </StackPane>
 
 </VBox>

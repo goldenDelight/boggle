@@ -6,23 +6,27 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Button?>
-<Pane prefHeight="400.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FoundController">
+
+<Pane prefHeight="400.0" prefWidth="200.0"
+      xmlns="http://javafx.com/javafx/8.0.121"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="views.BoardView">
+
     <VBox alignment="CENTER" centerShape="false" prefWidth="200">
 
-        <fx:include source="TimePanel.fxml" layoutX="100"/>
-
+        <Label fx:id="timeLabel" alignment="CENTER" textAlignment="CENTER" text="3:00"/>
         <!--<Label fx:id="timerLabel" alignment="CENTER" prefHeight="50" prefWidth="150" text="timer here" textAlignment="CENTER" />-->
         <Button fx:id="solution" text="End Round" prefWidth="100" alignment="CENTER" onAction="#giveUp"/>
 
         <HBox prefWidth="10" prefHeight="50" alignment="CENTER">
-            <fx:include source="WipLabel.fxml" layoutX="100"/>
+            <Label fx:id="currentWordLabel" prefWidth="150" prefHeight="50" alignment="CENTER" textAlignment="CENTER"/>
         </HBox>
 
         <HBox prefWidth="150" alignment="CENTER">
             <ListView fx:id="foundListView" prefHeight="300" prefWidth="150" />
         </HBox>
 
-        <Label fx:id="foundCount" alignment="CENTER" prefHeight="50" prefWidth="100" text="" />
+        <Label fx:id="foundCountLabel" alignment="CENTER" prefHeight="50" prefWidth="100" text="" />
 
     </VBox>
 

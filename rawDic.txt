@@ -11094,7 +11094,7 @@ counselling
 counsellor
 counsellors
 counsels
-count
+foundCount
 countability
 countable
 countably

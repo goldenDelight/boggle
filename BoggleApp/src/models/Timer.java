@@ -6,12 +6,10 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-import java.util.concurrent.atomic.AtomicBoolean;
+public class Timer implements Runnable{
 
-public class TimerModel implements Runnable{
-
-    private final static TimerModel model = new TimerModel();
-    public static TimerModel getModel(){
+    private final static Timer model = new Timer();
+    public static Timer getModel(){
         return model;
     }
 
@@ -37,7 +35,6 @@ public class TimerModel implements Runnable{
         }
         Platform.runLater(() -> completed.setValue(true));
     }
-
     public void refreshTimer(){
         completed.setValue(false);
         time.setValue("3:00");
@@ -48,36 +45,28 @@ public class TimerModel implements Runnable{
     public boolean getCompleted() {
         return completedProperty().get();
     }
-
     public BooleanProperty completedProperty() {
         return completed;
     }
-
     public void setCompleted(boolean completed) {
         completedProperty().set(completed);
     }
-
     public void interruptThread(){
         t.interrupt();
     }
-
     public void stopThread(){
 //        running.set(false);
 //        t.interrupt();
     }
-
     public boolean checkComplete(){
         return completed.getValue();
     }
-
     public StringProperty timeProperty() {
         return time;
     }
-
     public String getTime() {
         return time.get();
     }
-
     public void bindWith(StringProperty tm){
         time = tm;
     }

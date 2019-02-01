@@ -18,15 +18,12 @@ public class Launcher extends Application{
     }
 
     public void click() throws Exception{
-
-
         Stage game = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("views/Main.fxml"));
 
         game.setTitle("Dodgeball!");
         game.setScene(new Scene(root, 650, 600));
         game.show();
-
     }
 
     @Override

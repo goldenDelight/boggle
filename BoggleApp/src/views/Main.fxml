@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Launcher" prefHeight="200.0" prefWidth="600.0">
+    <left>
+        <Pane prefHeight="400.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+            <VBox alignment="CENTER" centerShape="false" prefWidth="200">
+
+                <Label fx:id="timeLabel" alignment="CENTER" textAlignment="CENTER" text="3:00"/>
+                <!--<Label fx:id="timerLabel" alignment="CENTER" prefHeight="50" prefWidth="150" text="timer here" textAlignment="CENTER" />-->
+                <Button fx:id="solution" text="End Round" prefWidth="100" alignment="CENTER" onAction="#giveUp"/>
+
+                <HBox prefWidth="10" prefHeight="50" alignment="CENTER">
+                    <Label fx:id="currentWordLabel" prefWidth="150" prefHeight="50" alignment="CENTER" textAlignment="CENTER"/>
+                </HBox>
+
+                <HBox prefWidth="150" alignment="CENTER">
+                    <ListView fx:id="foundListView" prefHeight="300" prefWidth="150" />
+                </HBox>
+
+                <Label fx:id="foundCount" alignment="CENTER" prefHeight="50" prefWidth="100" text=""/>
+
+            </VBox>
+        </Pane>
+    </left>
+    <center>
+        <StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" prefHeight="500.0" prefWidth="500.0">
+            <GridPane fx:id="gameBoard" prefHeight="450.0" prefWidth="450.0" alignment="CENTER" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+                <columnConstraints>
+                    <ColumnConstraints prefWidth="100"/>
+                    <ColumnConstraints prefWidth="100" />
+                    <ColumnConstraints prefWidth="100" />
+                    <ColumnConstraints prefWidth="100" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints prefHeight="100" />
+                    <RowConstraints prefHeight="100" />
+                    <RowConstraints prefHeight="100" />
+                    <RowConstraints prefHeight="100" />
+                </rowConstraints>
+            </GridPane>
+            <Pane fx:id="graphicsPanel" prefHeight="400.0" prefWidth="500.0" mouseTransparent="true"/>
+        </StackPane>
+    </center>
+    <top>
+        <MenuBar xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:id="menuBar">
+            <menus>
+                <Menu text="File">
+                    <MenuItem fx:id="exit" text="Exit" onAction="#close"/>
+                    <MenuItem fx:id="stop" text="Stop"/>
+                    <MenuItem fx:id="new" text="New Game" onAction="#rollButtonClicked"/>
+                </Menu>
+                <Menu text="Edit"/>
+                <Menu text="View"/>
+                <Menu text="Options"/>
+                <Menu text="Help"/>
+                <Menu text="About"/>
+            </menus>
+        </MenuBar>
+    </top>
+
+</BorderPane>
